@@ -4,11 +4,17 @@ A .NET Core controller for the [ModMyPi Programmable Christmas Tree Star](https:
 
 ## Background
 
-A while ago, I submitted [this suggestion](https://github.com/dotnet/iot/issues/771) to the [dotnet/iot](https://github.com/dotnet/iot) repository on Github. My idea was too provide functionality that would allow a PC to remotely control the GPIO pins on a Raspberry Pi running the 'pigpiod' daemon. The suggestion was well received so I submitted [this PR](https://github.com/dotnet/iot/pull/875) providing an initial implementation. This garnered some excellent feedback which, unfortunately, I haven't yet had a chance to implement so the PR is still pending.
+A while ago, I submitted [this suggestion](https://github.com/dotnet/iot/issues/771) to the [dotnet/iot](https://github.com/dotnet/iot) repository on Github. My idea was too provide functionality that would allow a PC to remotely control the GPIO pins on a Raspberry Pi running the ['pigpiod' daemon](https://gpiozero.readthedocs.io/en/stable/remote_gpio.html). The suggestion was well received so I submitted [this PR](https://github.com/dotnet/iot/pull/875) providing an initial implementation. This garnered some excellent feedback which, unfortunately, I haven't yet had a chance to implement so the PR is still pending.
 
-Then, a week or so ago, The Pi Hut put the [Raspberry Pi Christmas Tree Star](https://thepihut.com/products/raspberry-pi-christmas-tree-star) up for sale at ~£7. As most who know me know will tell you, I'm all for any opportunity to add tech to pretty much anything so, as we were about to go purchase our (locally and responsibly grown) Xmas tree, I thought this would be a fun play-thing.
+Then, a week or so ago, The Pi Hut put the [Raspberry Pi Christmas Tree Star](https://thepihut.com/products/raspberry-pi-christmas-tree-star) up for sale at ~£7. As most who know me know will tell you, I'm all for any opportunity to add tech to... well.... pretty much anything so, as we were about to go purchase our (locally and responsibly grown) Xmas tree, I thought this would be a fun play-thing.
 
 This repository shows how the functionality I added to the dotnet/iot repository can be used to remotely control this star.
+
+Feel free to play. I would very much welcome any additional patterns for the star or suggestions for improvements.
+
+## Security
+
+**A quick note on security**: When you [enable remote connections](https://gpiozero.readthedocs.io/en/stable/remote_gpio.html#enable-remote-connections) on the Pi, connections can be made to the Pi _**without any authentication at all**_. Therefore please only use this approach on a private network; an internet connected, compromised Raspberry Pi can provide quite a comprehensive entry point to your network!
 
 ## Solution
 
@@ -61,7 +67,7 @@ And then run with the following command:
 docker run -e Star:Pi:Host=[IPAddres of Pi] -e Star:Mqtt:Broker=[IP Address of Broker] star:latest
 ```
 
-Alternatively a pre-build image can be pulled and run from dockerhub using the following:
+Alternatively a pre-build image can be pulled and run from [dockerhub](https://hub.docker.com/r/ibebbs/xmasstar) using the following:
 
 ```
 docker run -e Star:Pi:Host=[IPAddres of Pi] -e Star:Mqtt:Broker=[IP Address] ibebbs/xmasstar:latest
