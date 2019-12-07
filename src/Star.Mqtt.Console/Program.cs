@@ -19,6 +19,8 @@ namespace Star.Mqtt.Console
                         services.AddSingleton<Auto.ISource, Auto.Source>();
                         services.AddOptions<Mqtt.Configuration>().Bind(hostContext.Configuration.GetSection("Mqtt"));
                         services.AddSingleton<Mqtt.ISource, Mqtt.Source>();
+
+                        services.AddOptions<Configuration>().Bind(hostContext.Configuration.GetSection("Pi"));
                         services.AddHostedService<Service>();
                     })
                 .ConfigureLogging((hostingContext, logging) => logging.AddConsole());

@@ -41,6 +41,8 @@ This project employs the [generic host](https://www.nuget.org/packages/Microsoft
 
 It can be configured by supplying the following environment variables:
 
+**Star:Pi:Host** - The IP address of the Raspberry Pi broker running the 'pigpiod' daemon
+**Star:Pi:Port** - The Port to connect to the Raspberry Pi on (defaults to 8888)
 **Star:Mqtt:Broker** - The IP address of the MQTT broker to receive frames from  
 **Star:Mqtt:Port** - The Port to connect to the MQTT broker on (defaults to 1883)  
 **Star:Mqtt:Topic** - The Topic to receive frames from (defaults to 'home/xmastree')

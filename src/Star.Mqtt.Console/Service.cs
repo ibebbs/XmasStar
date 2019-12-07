@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using System;
 using System.Net;
 using System.Reactive;
@@ -34,24 +35,36 @@ namespace Star.Mqtt.Console
         }
 
         private readonly IObservable<uint> _frames;
+        private readonly IOptions<Configuration> _configuration;
         private readonly ILogger<Service> _logger;
 
         private IDisposable _subscription;
 
-        public Service(Auto.ISource autoSource, Mqtt.ISource mqttSource, ILogger<Service> logger)
+        public Service(Auto.ISource autoSource, Mqtt.ISource mqttSource, IOptions<Configuration> configuration, ILogger<Service> logger)
         {
             _frames = Frames(autoSource, mqttSource);
+            _configuration = configuration;
             _logger = logger;
+        }
+
+        private Task<Core.Star> CreateStar(CancellationToken cancellationToken)
+        {
+            return Core.Star.Create(new IPEndPoint(IPAddress.Parse(_configuration.Value.Host), _configuration.Value.Port));
+        }
+
+        private Task<IObservable<Unit>> CreateObservable(Core.Star star, CancellationToken cancellationToken)
+        {
+            var observable = _frames
+                .Do(frame => _logger.LogInformation($"Writing frame: {Convert.ToString(frame, 2)}"))
+                .SelectMany(frame => Observable.StartAsync(() => star.WriteAsync(frame)));
+
+            return Task.FromResult(observable);
         }
 
         public Task StartAsync(CancellationToken cancellationToken)
         {
             _subscription = Observable
-                .Using(
-                    cancellationToken => Core.Star.Create(new IPEndPoint(IPAddress.Parse("192.168.2.105"), 8888)),
-                    (star, cancellationToken) => Task.FromResult(_frames
-                        .Do(frame => _logger.LogInformation($"Writing frame: {Convert.ToString(frame, 2)}"))
-                        .SelectMany(frame => Observable.StartAsync(() => star.WriteAsync(frame)))))
+                .Using(CreateStar, CreateObservable)
                 .Subscribe();
 
             return Task.CompletedTask;

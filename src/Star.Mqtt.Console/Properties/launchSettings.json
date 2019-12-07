@@ -1,10 +1,16 @@
 {
   "profiles": {
     "Star.Mqtt.Console": {
-      "commandName": "Project"
+      "commandName": "Project",
+      "environmentVariables": {
+        "Star:Pi:Host": "192.168.2.30"
+      }
     },
     "Docker": {
-      "commandName": "Docker"
+      "commandName": "Docker",
+      "environmentVariables": {
+        "Star:Pi:Host": "192.168.2.30"
+      }
     }
   }
 }
