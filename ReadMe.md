@@ -58,13 +58,13 @@ docker build -f .\Star.Mqtt.Console\Dockerfile -t star:latest .
 And then run with the following command:
 
 ```
-docker run -e Star:Mqtt:Broker=[IP Address] star:latest
+docker run -e Star:Pi:Host=[IPAddres of Pi] -e Star:Mqtt:Broker=[IP Address of Broker] star:latest
 ```
 
 Alternatively a pre-build image can be pulled and run from dockerhub using the following:
 
 ```
-docker run -e Star:Mqtt:Broker=[IP Address] ibebbs/xmasstar:latest
+docker run -e Star:Pi:Host=[IPAddres of Pi] -e Star:Mqtt:Broker=[IP Address] ibebbs/xmasstar:latest
 ```
 
 #### Mqtt
