@@ -3,13 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29409.12
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Star.Core", "Star.Core\Star.Core.csproj", "{44395006-747F-4636-B82B-4D4F6A6F7623}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Star.Core", "Star.Core\Star.Core.csproj", "{44395006-747F-4636-B82B-4D4F6A6F7623}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Star.Marching.Console", "Star.Marching.Console\Star.Marching.Console.csproj", "{F41EA360-9A51-4477-AE99-EF7C0D2707DF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Star.Marching.Console", "Star.Marching.Console\Star.Marching.Console.csproj", "{F41EA360-9A51-4477-AE99-EF7C0D2707DF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Star.Mqtt.Console", "Star.Mqtt.Console\Star.Mqtt.Console.csproj", "{24AED24B-DE94-46EF-9E20-4FE47667A9A9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Star.Mqtt.Console", "Star.Mqtt.Console\Star.Mqtt.Console.csproj", "{24AED24B-DE94-46EF-9E20-4FE47667A9A9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Star.Twinkle.Console", "Star.Twinkle.Console\Star.Twinkle.Console.csproj", "{D1EEBA6A-7C07-4F9C-A4B6-2BD8D6738298}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Star.Twinkle.Console", "Star.Twinkle.Console\Star.Twinkle.Console.csproj", "{D1EEBA6A-7C07-4F9C-A4B6-2BD8D6738298}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Repository", "Repository", "{DE4D7038-2FBB-47C0-9765-4127CA5E93DE}"
+	ProjectSection(SolutionItems) = preProject
+		..\LICENSE = ..\LICENSE
+		..\ReadMe.md = ..\ReadMe.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -55,7 +55,7 @@ namespace Star.Core
             }
         }
 
-        public Task Write(uint frame)
+        public Task WriteAsync(uint frame)
         {
             var pins = Enumerable
                 .Range(0, PinMapping.Length)

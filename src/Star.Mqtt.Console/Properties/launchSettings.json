@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Star.Mqtt.Console": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}

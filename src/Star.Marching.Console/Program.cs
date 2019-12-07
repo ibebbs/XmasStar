@@ -24,7 +24,7 @@ namespace Star.Marching.Console
 
                 System.Console.WriteLine(Convert.ToString(frame, 2).PadLeft(25, '0'));
 
-                await star.Write(frame);
+                await star.WriteAsync(frame);
 
                 //await Task.Delay(TimeSpan.FromSeconds(0.1));
             }

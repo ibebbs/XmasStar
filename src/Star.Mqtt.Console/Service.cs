@@ -51,7 +51,7 @@ namespace Star.Mqtt.Console
                     cancellationToken => Core.Star.Create(new IPEndPoint(IPAddress.Parse("192.168.2.105"), 8888)),
                     (star, cancellationToken) => Task.FromResult(_frames
                         .Do(frame => _logger.LogInformation($"Writing frame: {Convert.ToString(frame, 2)}"))
-                        .SelectMany(frame => Observable.StartAsync(() => star.Write(frame)))))
+                        .SelectMany(frame => Observable.StartAsync(() => star.WriteAsync(frame)))))
                 .Subscribe();
 
             return Task.CompletedTask;
