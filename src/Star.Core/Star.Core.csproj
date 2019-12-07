@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="Pigpio">
+      <HintPath>..\lib\Pigpio.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Device.Gpio">
+      <HintPath>..\lib\System.Device.Gpio.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

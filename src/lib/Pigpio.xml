@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Pigpio</name>
+    </assembly>
+    <members>
+        <member name="T:Iot.Device.Pigpio.Driver">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Iot.Device.Pigpio.Driver.#ctor(System.Net.IPEndPoint)">
+            <summary>
+            
+            </summary>
+            <param name="endpoint"></param>
+        </member>
+        <member name="M:Iot.Device.Pigpio.Driver.ConnectAsync">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Iot.Device.Pigpio.Driver.PinCount">
+            <inheritdoc/>
+        </member>
+        <member name="M:Iot.Device.Pigpio.Driver.AddCallbackForPinValueChangedEvent(System.Int32,System.Device.Gpio.PinEventTypes,System.Device.Gpio.PinChangeEventHandler)">
+            <summary>
+            
+            </summary>
+            <param name="pinNumber"></param>
+            <param name="eventTypes"></param>
+            <param name="callback"></param>
+        </member>
+        <member name="M:Iot.Device.Pigpio.Driver.ClosePin(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Iot.Device.Pigpio.Driver.ConvertPinNumberToLogicalNumberingScheme(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Iot.Device.Pigpio.Driver.GetPinMode(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Iot.Device.Pigpio.Driver.IsPinModeSupported(System.Int32,System.Device.Gpio.PinMode)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Iot.Device.Pigpio.Driver.OpenPin(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Iot.Device.Pigpio.Driver.Read(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Iot.Device.Pigpio.Driver.RemoveCallbackForPinValueChangedEvent(System.Int32,System.Device.Gpio.PinChangeEventHandler)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Iot.Device.Pigpio.Driver.SetPinMode(System.Int32,System.Device.Gpio.PinMode)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Iot.Device.Pigpio.Driver.WaitForEvent(System.Int32,System.Device.Gpio.PinEventTypes,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Iot.Device.Pigpio.Driver.Write(System.Int32,System.Device.Gpio.PinValue)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Iot.Device.Pigpio.PigpiodIf">
+            <summary>
+            Pigpiod C# Interface for debugging in Visual Studio using GPIO of Raspberry Pi 
+            </summary>
+            <remarks>
+            From here: https://github.com/Rapidnack/PigpiodIfTest
+            </remarks>
+        </member>
+    </members>
+</doc>
