@@ -71,7 +71,7 @@ docker run -e Star:Pi:Host=[IPAddres of Pi] -e Star:Mqtt:Broker=[IP Address] ibe
 
 To quickly test interaction with the Star I use the following Node-Red flow:
 
-![node-red](doc\NodeRed-MQTT.png)
+![node-red](doc/NodeRed-MQTT.png)
 
 ```json
 [
