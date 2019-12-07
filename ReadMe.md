@@ -32,6 +32,8 @@ These two projects run as a console application and show how to use the Star.Cor
 
 ### Star.Mqtt.Console
 
+#### Description
+
 This project employs the [generic host](https://www.nuget.org/packages/Microsoft.Extensions.Hosting/) to run a service which can be reliably run from within a docker container. It was designed to do two things:
 
 1. Display frames received from an MQTT broker (as a 4 byte buffer) on the star.
@@ -43,6 +45,8 @@ It can be configured by supplying the following environment variables:
 **Star:Mqtt:Port** - The Port to connect to the MQTT broker on (defaults to 1883)  
 **Star:Mqtt:Topic** - The Topic to receive frames from (defaults to 'home/xmastree')
 
+#### Docker
+
 A dockerfile is provides so that the Star.Mqtt.Console application can be run from with docker. It can be build by running the following command from the '$\src' directory (relative to repository root):
 
 ```
@@ -53,4 +57,92 @@ And then run with the following command:
 
 ```
 docker run -e Star:Mqtt:Broker=[IP Address] star:latest
+```
+
+Alternatively a pre-build image can be pulled and run from dockerhub using the following:
+
+```
+docker run -e Star:Mqtt:Broker=[IP Address] ibebbs/xmasstar:latest
+```
+
+#### Mqtt
+
+To quickly test interaction with the Star I use the following Node-Red flow:
+
+![node-red](doc\NodeRed-MQTT.png)
+
+```json
+[
+    {
+        "id": "475a2d52.bc7ebc",
+        "type": "inject",
+        "z": "16ce54a.befcb2b",
+        "name": "",
+        "topic": "",
+        "payload": "[0,0,0,0]",
+        "payloadType": "bin",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 130,
+        "y": 340,
+        "wires": [
+            [
+                "3a547207.c894b6",
+                "88005ec3.62baf"
+            ]
+        ]
+    },
+    {
+        "id": "3a547207.c894b6",
+        "type": "mqtt out",
+        "z": "16ce54a.befcb2b",
+        "name": "",
+        "topic": "home/xmastree",
+        "qos": "",
+        "retain": "",
+        "broker": "adea6257.de843",
+        "x": 360,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "88005ec3.62baf",
+        "type": "debug",
+        "z": "16ce54a.befcb2b",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 340,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "adea6257.de843",
+        "type": "mqtt-broker",
+        "z": "",
+        "name": "Local",
+        "broker": "192.168.1.24",
+        "port": "1883",
+        "clientid": "NodeRed",
+        "usetls": false,
+        "compatmode": true,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    }
+]
 ```
