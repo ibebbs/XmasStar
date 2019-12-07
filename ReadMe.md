@@ -34,15 +34,15 @@ These two projects run as a console application and show how to use the Star.Cor
 
 #### Description
 
-This project employs the [generic host](https://www.nuget.org/packages/Microsoft.Extensions.Hosting/) to run a service which can be reliably run from within a docker container. It was designed to do two things:
+This project employs the [generic host](https://www.nuget.org/packages/Microsoft.Extensions.Hosting/) to reliably run a service from within a docker container. The service was designed to do two things:
 
 1. Display frames received from an MQTT broker (as a 4 byte buffer) on the star.
 2. Generate and display patterns on the star when no message has been received from MQTT for 10 seconds.
 
 It can be configured by supplying the following environment variables:
 
-**Star:Pi:Host** - The IP address of the Raspberry Pi broker running the 'pigpiod' daemon
-**Star:Pi:Port** - The Port to connect to the Raspberry Pi on (defaults to 8888)
+**Star:Pi:Host** - The IP address of the Raspberry Pi broker running the 'pigpiod' daemon  
+**Star:Pi:Port** - The Port to connect to the Raspberry Pi on (defaults to 8888)  
 **Star:Mqtt:Broker** - The IP address of the MQTT broker to receive frames from  
 **Star:Mqtt:Port** - The Port to connect to the MQTT broker on (defaults to 1883)  
 **Star:Mqtt:Topic** - The Topic to receive frames from (defaults to 'home/xmastree')
